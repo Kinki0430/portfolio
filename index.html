@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>樊書廷 | 學生簡介</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F1E33;
+    --navy-2: #16283F;
+    --bg: #F6F6F3;
+    --card: #FFFFFF;
+    --ink: #16202C;
+    --ink-soft: #5B6472;
+    --line: #E1E1DC;
+    --gold: #A9812F;
+    --gold-soft: #F1E7CE;
+    --panel-1: #101B30;
+    --panel-2: #223A5C;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #0D1420;
+      --card: #131C2B;
+      --ink: #E9EBEE;
+      --ink-soft: #97A0AE;
+      --line: #26324399;
+      --gold: #D3AE5E;
+      --gold-soft: #2A2413;
+      --navy: #E9EBEE;
+      --navy-2: #C7CDD6;
+      --panel-1: #0A1120;
+      --panel-2: #1A2C48;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0D1420;
+    --card: #131C2B;
+    --ink: #E9EBEE;
+    --ink-soft: #97A0AE;
+    --line: #26324399;
+    --gold: #D3AE5E;
+    --gold-soft: #2A2413;
+    --navy: #E9EBEE;
+    --navy-2: #C7CDD6;
+    --panel-1: #0A1120;
+    --panel-2: #1A2C48;
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans TC", "Inter", -apple-system, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
+  .serif { font-family: "Source Serif 4", "Noto Serif TC", serif; }
+
+  /* ---------- Nav (pill tabs, tamagotchi-inspired, corporate palette) ---------- */
+  .tabbar-outer {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .tabbar-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .brand-mark {
+    width: 34px; height: 34px;
+    border: 1.5px solid var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Source Serif 4", serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .brand-name { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; white-space: nowrap; }
+  .tabbar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabbar::-webkit-scrollbar { display: none; }
+  .tab {
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+    white-space: nowrap;
+  }
+  .tab.is-active, .tab:hover, .tab:focus-visible {
+    background: var(--navy);
+    color: var(--bg);
+    border-color: var(--navy);
+  }
+  .nav-cta {
+    border: 1px solid var(--navy);
+    padding: 9px 20px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 48px 0 60px; border-bottom: 1px solid var(--line); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 340px; gap: 44px; align-items: stretch; }
+  .eyebrow-line {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--gold); font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.06em; margin-bottom: 22px;
+  }
+  .eyebrow-line .bar { width: 24px; height: 1px; background: var(--gold); }
+  h1.headline { font-weight: 600; font-size: clamp(2.3rem, 4.6vw, 3.3rem); line-height: 1.2; margin: 0 0 18px; }
+  .role-line { font-size: 1.05rem; color: var(--ink-soft); margin: 0 0 28px; max-width: 52ch; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    padding: 13px 26px; border-radius: 999px; font-size: 0.9rem; font-weight: 600;
+    text-decoration: none; border: 1px solid var(--navy);
+    transition: background .2s ease, color .2s ease, transform .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary { background: var(--navy); color: var(--bg); }
+  .btn.primary:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .btn.ghost { color: var(--ink); }
+  .btn.ghost:hover { background: var(--navy); color: var(--bg); }
+
+  /* feature panel — tamagotchi "space card" energy, corporate palette */
+  .feature-panel {
+    background: linear-gradient(160deg, var(--panel-1), var(--panel-2));
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    color: #EDEFF3;
+  }
+  .panel-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #D9C489;
+    text-transform: uppercase;
+  }
+  .panel-stage {
+    flex: 1;
+    min-height: 190px;
+    border-radius: 14px;
+    background: radial-gradient(circle at 75% 15%, #2A3F63 0%, #101B30 72%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .p-dot {
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #D9C489;
+    opacity: 0.7;
+  }
+  .panel-avatar { font-size: 3.6rem; z-index: 1; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4)); }
+  .panel-slide-text {
+    position: absolute; bottom: 12px; left: 14px; right: 14px;
+    font-size: 0.82rem; font-weight: 500;
+    background: rgba(6,10,22,0.5);
+    padding: 8px 12px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+  }
+  .dots { display: flex; justify-content: center; gap: 6px; }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.22); border: none; padding: 0; cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .dot.active { background: var(--gold); transform: scale(1.15); }
+  .panel-stats { display: flex; gap: 8px; flex-wrap: wrap; }
+  .panel-chip {
+    font-size: 0.74rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+  }
+
+  /* ---------- Metrics band ---------- */
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+  .metric { padding: 34px 32px; border-left: 1px solid var(--line); }
+  .metric:first-child { border-left: none; }
+  .metric .num { font-family: "Source Serif 4", serif; font-size: 2.1rem; font-weight: 600; color: var(--navy); }
+  .metric .label { font-size: 0.82rem; color: var(--ink-soft); margin-top: 4px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 100px; }
+  section:last-of-type { border-bottom: none; }
+  .section-tag { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 14px; }
+  .section-tag .bar { width: 24px; height: 1px; background: var(--gold); }
+  h2.section-title { font-size: 1.7rem; font-weight: 600; margin: 0 0 30px; }
+
+  /* About */
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .about-layout p { color: var(--ink-soft); margin: 0 0 16px; }
+  .about-layout p strong { color: var(--ink); font-weight: 600; }
+  .principle-list { list-style: none; margin: 0; padding: 0; }
+  .principle-list li { padding: 16px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 28px 1fr; gap: 14px; }
+  .principle-list li:first-child { border-top: none; padding-top: 0; }
+  .principle-list .p-num { font-family: "Source Serif 4", serif; color: var(--gold); font-size: 0.95rem; }
+  .principle-list h3 { margin: 0 0 4px; font-size: 0.98rem; font-weight: 600; }
+  .principle-list p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+  /* Education / Experience */
+  .exp-table { border-top: 1px solid var(--line); }
+  .exp-row { display: grid; grid-template-columns: 140px 1fr 200px; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .exp-period { font-size: 0.85rem; color: var(--ink-soft); font-weight: 500; padding-top: 3px; }
+  .exp-role { font-size: 1.05rem; font-weight: 600; margin: 0 0 6px; }
+  .exp-desc { color: var(--ink-soft); font-size: 0.92rem; margin: 0; max-width: 58ch; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; align-content: start; }
+  .exp-tag { font-size: 0.75rem; padding: 4px 12px; border-radius: 999px; background: var(--gold-soft); color: var(--gold); font-weight: 600; white-space: nowrap; }
+
+  /* Skills */
+  .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 48px; }
+  .expertise-group h3 { font-size: 0.98rem; font-weight: 600; margin: 0 0 16px; }
+  .skill-bar-row { margin-bottom: 14px; }
+  .skill-bar-row:last-child { margin-bottom: 0; }
+  .skill-bar-top { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 6px; }
+  .skill-bar-track { height: 4px; border-radius: 999px; background: var(--line); position: relative; }
+  .skill-bar-fill { height: 100%; border-radius: 999px; background: var(--navy); }
+
+  /* Projects */
+  .project-list { display: grid; gap: 16px; }
+  .project-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; display: grid; grid-template-columns: 1fr auto; gap: 16px; }
+  .project-card h3 { margin: 0 0 6px; font-size: 1.02rem; font-weight: 600; }
+  .project-card p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; max-width: 58ch; }
+  .project-year { font-size: 0.8rem; color: var(--ink-soft); white-space: nowrap; }
+
+  /* Contact */
+  .contact-card { background: linear-gradient(150deg, var(--panel-1), var(--panel-2)); border-radius: 24px; padding: 44px 36px; text-align: center; color: #EDEFF3; }
+  .contact-card h2 { font-size: 1.6rem; font-weight: 600; margin: 0 0 10px; }
+  .contact-card p { color: #B7C1D6; max-width: 44ch; margin: 0 auto 26px; }
+  .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .contact-links a {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+    padding: 12px 22px; border-radius: 999px; text-decoration: none; font-size: 0.9rem;
+    font-weight: 600; color: #EDEFF3; transition: background .2s ease, transform .15s ease;
+  }
+  .contact-links a:hover, .contact-links a:focus-visible { background: rgba(255,255,255,0.16); transform: translateY(-2px); }
+
+  footer { padding: 26px 0 calc(26px + env(safe-area-inset-bottom, 0px)); text-align: center; color: var(--ink-soft); font-size: 0.78rem; }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .brand-name { display: none; }
+  }
+  @media (max-width: 820px) {
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+    .metric:nth-child(3) { border-left: none; }
+    .about-layout { grid-template-columns: 1fr; }
+    .exp-row { grid-template-columns: 1fr; }
+    .exp-tags { justify-content: flex-start; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .project-card { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 20px; }
+    .tabbar-inner { padding: 0 20px; }
+    .metrics { grid-template-columns: 1fr 1fr; }
+    .metric { padding: 26px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tabbar-outer">
+  <div class="tabbar-inner">
+    <div class="brand">
+      <div class="brand-mark">書廷</div>
+      <span class="brand-name">樊書廷</span>
+    </div>
+    <nav class="tabbar" id="tabbar">
+      <a class="tab is-active" href="#home">首頁</a>
+      <a class="tab" href="#about">關於</a>
+      <a class="tab" href="#education">學經歷</a>
+      <a class="tab" href="#skills">能力</a>
+      <a class="tab" href="#projects">專題</a>
+      <a class="tab" href="#contact">聯絡</a>
+    </nav>
+    <a class="nav-cta" href="#contact">聯絡我</a>
+  </div>
+</div>
+
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-line"><span class="bar"></span>學生簡介</div>
+      <h1 class="headline serif">樊書廷</h1>
+      <p class="role-line">國立屏東大學資訊管理學系四年級學生</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#contact">索取履歷</a>
+        <a class="btn ghost" href="#projects">查看專題</a>
+      </div>
+    </div>
+    <div class="feature-panel">
+      <span class="panel-label">Shuting · Profile</span>
+      <div class="panel-stage" id="stage">
+        <span class="p-dot" style="top:18%;left:22%;"></span>
+        <span class="p-dot" style="top:28%;right:20%;"></span>
+        <span class="p-dot" style="bottom:34%;left:16%;"></span>
+        <span class="p-dot" style="bottom:22%;right:28%;"></span>
+        <span class="p-dot" style="top:50%;left:10%;"></span>
+        <span class="panel-avatar" id="panel-avatar">🎓</span>
+        <div class="panel-slide-text" id="panel-text">屏東大學資訊管理系・四年級</div>
+      </div>
+      <div class="dots" id="dots">
+        <button class="dot active" data-i="0" aria-label="第 1 張"></button>
+        <button class="dot" data-i="1" aria-label="第 2 張"></button>
+        <button class="dot" data-i="2" aria-label="第 3 張"></button>
+      </div>
+      <div class="panel-stats">
+        <span class="panel-chip">1段實習</span>
+        <span class="panel-chip">高雄</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="metrics wrap">
+  </div>
+  <div class="metric">
+    <div class="num serif"></div>
+    <div class="label">企業實習經驗</div>
+  </div>
+  <div class="metric">
+    <div class="num serif">1</div>
+    <div class="label">學生社團 / 專題</div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-tag"><span class="bar"></span>ABOUT</div>
+    <h2 class="section-title serif">關於我</h2>
+    <div class="about-layout">
+      <div>
+        <p>我是<strong>樊書廷</strong>，目前就讀國立屏東大學資訊管理學系四年級
+        </p>
+      </div>
+      <ol class="principle-list">
+        <li>
+          <span class="p-num serif">01</span>
+          <div>
+            <h3>主動學習</h3>
+            <p>喜歡在課堂之外，透過線上課程與書籍補足不足的知識。</p>
+          </div>
+        </li>
+        <li>
+          <span class="p-num serif">02</span>
+          <div>
+            <h3>重視團隊合作</h3>
+            <p>在多次小組專題中擔任統籌角色，習慣傾聽不同意見再做決策。</p>
+          </div>
+        </li>
+        <li>
+          <span class="p-num serif">03</span>
+          <div>
+            <h3>從實作中學習</h3>
+            <p>比起單純唸書，更喜歡透過實習與競賽驗證所學。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-tag"><span class="bar"></span>EDUCATION &amp; EXPERIENCE</div>
+    <h2 class="section-title serif">學經歷</h2>
+    <div class="exp-table">
+      <div class="exp-row">
+        <span class="exp-period">2023.07 — 2023.09</span>
+        <div>
+          <h3 class="exp-role">資訊實習生・消費品牌公司</h3>
+          <p class="exp-desc">協助社群內容規劃與活動企劃，參與一場快閃活動的完整執行，活動期間業績成長 12%。</p>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">社群行銷</span>
+          <span class="exp-tag">活動企劃</span>
+        </div>
+      </div>
+      <div class="exp-row">
+        <span class="exp-period">2022.07 — 2022.08</span>
+        <div>
+          <h3 class="exp-role">數據分析實習生・電商新創</h3>
+          <p class="exp-desc">協助整理顧客購買數據，製作月度報表，並提出兩項促銷方案供團隊參考。</p>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">數據分析</span>
+          <span class="exp-tag">Excel</span>
+        </div>
+      </div>
+      <div class="exp-row">
+        <span class="exp-period">2021 — 至今</span>
+        <div>
+          <h3 class="exp-role">企業管理系・國立成功大學</h3>
+          <p class="exp-desc">主修行銷與消費者行為，輔修統計學，連續三學期入選系上榮譽榜。</p>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">行銷管理</span>
+          <span class="exp-tag">統計學</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-tag"><span class="bar"></span>SKILLS</div>
+    <h2 class="section-title serif">能力</h2>
+    <div class="expertise-grid">
+      <div class="expertise-group">
+        <h3>專業能力</h3>
+        <div class="skill-bar-row">
+          <div class="skill-bar-top"><span>市場分析</span><span>85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-top"><span>Excel / 數據整理</span><span>90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-top"><span>簡報製作</span><span>88%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+        </div>
+      </div>
+      <div class="expertise-group">
+        <h3>軟實力與工具</h3>
+        <div class="skill-bar-row">
+          <div class="skill-bar-top"><span>團隊協作</span><span>92%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-top"><span>英文簡報 / 溝通</span><span>80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-top"><span>Canva / 內容製作</span><span>75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-tag"><span class="bar"></span>PROJECTS</div>
+    <h2 class="section-title serif">專題與競賽</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <div>
+          <h3>全國大專商業個案競賽・優勝</h3>
+          <p>與四位同學組隊，針對在地小型品牌提出數位轉型建議，獲得評審團隊優勝獎。</p>
+        </div>
+        <span class="project-year">2024</span>
+      </div>
+      <div class="project-card">
+        <div>
+          <h3>畢業專題：消費者品牌忠誠度研究</h3>
+          <p>透過問卷調查與訪談，分析年輕族群對於在地品牌的忠誠度來源，論文已投稿系內研討會。</p>
+        </div>
+        <span class="project-year">2026</span>
+      </div>
+      <div class="project-card">
+        <div>
+          <h3>系學會活動企劃・行銷組組長</h3>
+          <p>帶領六人小組規劃系上迎新活動的社群宣傳，活動報名人數較去年成長 20%。</p>
+        </div>
+        <span class="project-year">2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <h2 class="serif">歡迎聯繫實習或合作機會</h2>
+      <p>不論是實習機會、專題合作，或是想多聊聊行銷相關的話題，都歡迎與我聯繫，我通常會在一到兩天內回覆。</p>
+      <div class="contact-links">
+        <a href="mailto:hello@example.com">✉️ hello@example.com</a>
+        <a href="#">🔗 LinkedIn</a>
+        <a href="mailto:student@example.edu.tw">🎓 學校信箱</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026樊書廷。此頁面為學生自我介紹模板，內容可依實際經歷替換。</p>
+  </div>
+</footer>
+
+<script>
+  // tab active state on scroll
+  const tabs = Array.from(document.querySelectorAll('.tab'));
+  const sections = tabs.map(t => document.querySelector(t.getAttribute('href')));
+  function updateActiveTab() {
+    let idx = 0;
+    const y = window.scrollY + 130;
+    sections.forEach((sec, i) => { if (sec && sec.offsetTop <= y) idx = i; });
+    tabs.forEach((t, i) => t.classList.toggle('is-active', i === idx));
+  }
+  window.addEventListener('scroll', updateActiveTab, { passive: true });
+  updateActiveTab();
+
+  // feature panel slide carousel
+  const slides = [
+    { emoji: '🎓', text: '成功大學企業管理系・四年級' },
+    { emoji: '📊', text: '主修行銷與消費者行為，輔修統計' },
+    { emoji: '🏆', text: '全國商業個案競賽・優勝獎' }
+  ];
+  const avatarEl = document.getElementById('panel-avatar');
+  const textEl = document.getElementById('panel-text');
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  let current = 0;
+  function showSlide(i) {
+    current = i;
+    avatarEl.textContent = slides[i].emoji;
+    textEl.textContent = slides[i].text;
+    dots.forEach((d, di) => d.classList.toggle('active', di === i));
+  }
+  dots.forEach(d => d.addEventListener('click', () => showSlide(Number(d.dataset.i))));
+  let auto = setInterval(() => showSlide((current + 1) % slides.length), 4500);
+  document.getElementById('stage').addEventListener('mouseenter', () => clearInterval(auto));
+</script> 
+
+</body>
+</html>
