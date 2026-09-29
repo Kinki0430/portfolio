@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -24,6 +25,7 @@
   <div class="wrap">
     <h1>你好，我是樊書廷</h1>
     <p class="sub">國立屏東大學｜資訊管理學系｜大四</p>
+
     <p class="lead">
       對資訊科技、系統開發與數位應用有興趣，
       喜歡透過實際操作與專題製作累積經驗，
@@ -36,6 +38,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- 關於我 -->
 <section id="about">
@@ -68,6 +71,7 @@
 
     <div class="row">
       <span>2023/9 — 2027/6</span>
+
       <div>
         <b>國立屏東大學・資訊管理學系</b>
         <small>大學日間部就讀中</small>
@@ -76,22 +80,35 @@
 
     <div class="row">
       <span>2020/8 — 2023/6</span>
+
       <div>
         <b>國立華南高商・電子商務科</b>
         <small>高職畢業</small>
       </div>
     </div>
-
   </div>
 </section>
+
 
 <!-- 專題 -->
 <section id="project">
   <div class="wrap">
+
     <h2>專題作品</h2>
 
     <div class="project">
-      <h3>基於人工智慧與模糊語意之智慧租屋決策支援系統</h3>
+
+      <h3>
+        基於人工智慧與模糊語意之智慧租屋決策支援系統
+      </h3>
+
+      <!-- 專題主圖 -->
+      <div class="project-cover">
+        <img
+          src="images/project-cover.jpg"
+          alt="智慧租屋決策支援系統專題主圖"
+        >
+      </div>
 
       <p>
         本專題以高雄與屏東地區租屋資料為基礎，
@@ -102,11 +119,13 @@
 
       <p>
         <small>
-          國立屏東大學 115 學年度畢業專題｜指導老師：李來錫
+          國立屏東大學 115 學年度畢業專題｜
+          指導老師：李來錫
         </small>
       </p>
 
       <div class="stats">
+
         <div>
           <b>601</b>
           <span>筆高屏租屋資料</span>
@@ -126,6 +145,7 @@
           <b>2</b>
           <span>種使用模式</span>
         </div>
+
       </div>
 
       <div class="tags">
@@ -135,14 +155,19 @@
         <i>SQLite</i>
         <i>模糊理論</i>
       </div>
+
     </div>
+
 
     <details class="more">
       <summary>展開專題詳細內容</summary>
 
+
+      <!-- 專題介紹 -->
       <h3>專題介紹</h3>
 
       <div class="card">
+
         <p>
           傳統租屋網站大多需要使用者自行設定租金、地區、
           房型等明確條件，但實際租屋時，
@@ -155,13 +180,18 @@
           再透過五項租屋決策評估因子與偏好權重，
           計算不同租屋物件與使用者需求之間的符合程度。
         </p>
+
       </div>
 
+
+      <!-- 兩種使用模式 -->
       <h3>兩種使用模式</h3>
 
       <div class="roles">
+
         <div class="card">
           <b>一般條件篩選</b>
+
           <p>
             使用者依租金、地區、房型等明確條件進行設定，
             系統直接從租屋資料中篩選並顯示符合條件的房屋。
@@ -170,41 +200,65 @@
 
         <div class="card">
           <b>自然語言推薦</b>
+
           <p>
             使用者可直接以文字描述租屋需求，
             系統解析需求後計算各項評估因子的符合程度，
             再產生個人化推薦排序。
           </p>
         </div>
+
       </div>
 
+
+      <!-- 自然語言推薦流程 -->
       <h3>自然語言推薦流程</h3>
 
+      <!-- 專題流程圖 -->
+      <div class="project-diagram">
+        <img
+          src="images/project-flow.png"
+          alt="自然語言推薦流程圖"
+        >
+      </div>
+
       <ol class="flow">
+
         <li>
           <b>輸入需求</b>
-          <small>使用自然語言描述租屋需求</small>
+          <small>
+            使用自然語言描述租屋需求
+          </small>
         </li>
 
         <li>
           <b>需求解析</b>
-          <small>轉換成結構化需求資料</small>
+          <small>
+            轉換成結構化需求資料
+          </small>
         </li>
 
         <li>
           <b>模糊量化</b>
-          <small>計算各因子 0～1 符合程度</small>
+          <small>
+            計算各因子 0～1 符合程度
+          </small>
         </li>
 
         <li>
           <b>偏好權重</b>
-          <small>依重要性排序建立權重</small>
+          <small>
+            依重要性排序建立權重
+          </small>
         </li>
 
         <li>
           <b>推薦排序</b>
-          <small>計算人房適配度並排序</small>
+          <small>
+            計算人房適配度並排序
+          </small>
         </li>
+
       </ol>
 
       <p class="note">
@@ -212,11 +266,15 @@
         實際的符合程度與推薦結果則由系統中的計算方式產生。
       </p>
 
+
+      <!-- 五項評估因子 -->
       <h3>五項租屋決策評估因子</h3>
 
       <div class="roles">
+
         <div class="card">
           <b>預算租金</b>
+
           <p>
             根據使用者可接受的租金範圍，
             評估房屋租金與需求之間的符合程度。
@@ -225,6 +283,7 @@
 
         <div class="card">
           <b>通勤便利度</b>
+
           <p>
             將租屋地址轉換為經緯度，
             並與使用者選擇的固定目的地計算直線距離。
@@ -233,6 +292,7 @@
 
         <div class="card">
           <b>生活機能</b>
+
           <p>
             依租屋周邊生活設施資料，
             評估日常生活便利程度。
@@ -241,6 +301,7 @@
 
         <div class="card">
           <b>設備完善度</b>
+
           <p>
             根據房屋提供的基本設備項目，
             評估設備完整程度。
@@ -249,18 +310,24 @@
 
         <div class="card">
           <b>採光與通風</b>
+
           <p>
             根據房屋是否具有對外窗、陽台等資訊，
             評估採光與通風條件。
           </p>
         </div>
+
       </div>
 
+
+      <!-- 我參與的部分 -->
       <h3>我參與的部分</h3>
 
       <div class="roles">
+
         <div class="card">
           <b>前端介面</b>
+
           <p>
             參與一般條件篩選與自然語言推薦介面設計，
             並規劃使用者偏好排序及推薦結果呈現方式。
@@ -269,6 +336,7 @@
 
         <div class="card">
           <b>後端與 API 串接</b>
+
           <p>
             參與 Flask 後端建置及 OpenAI API 串接，
             將自然語言需求整理成系統可以使用的資料。
@@ -277,6 +345,7 @@
 
         <div class="card">
           <b>模糊需求量化</b>
+
           <p>
             利用隸屬函數將租金、距離等原始資料，
             轉換成 0～1 之間的需求符合程度。
@@ -285,17 +354,24 @@
 
         <div class="card">
           <b>推薦計算</b>
+
           <p>
             將五項評估因子的符合程度結合使用者偏好權重，
             計算人－房適配度並進行推薦排序。
           </p>
         </div>
+
       </div>
 
+
+      <!-- 核心機制 -->
       <h3>核心機制</h3>
 
       <details>
-        <summary>模糊量化：「租金不要太高」怎麼計算？</summary>
+
+        <summary>
+          模糊量化：「租金不要太高」怎麼計算？
+        </summary>
 
         <p>
           例如設定月租 8,000 元以下完全符合需求，
@@ -313,10 +389,15 @@
           此範例主要用來說明計算方式，
           實際參數將依租屋資料分布進行設定與調整。
         </p>
+
       </details>
 
+
       <details>
-        <summary>人－房適配度怎麼計算？</summary>
+
+        <summary>
+          人－房適配度怎麼計算？
+        </summary>
 
         <p>
           將五項評估因子的符合程度乘上各自的偏好權重，
@@ -333,12 +414,18 @@
           人－房適配度越高，
           代表該租屋物件越符合使用者整體需求。
         </p>
+
       </details>
 
+
       <details>
-        <summary>五項評估因子的資料來源</summary>
+
+        <summary>
+          五項評估因子的資料來源
+        </summary>
 
         <table>
+
           <tr>
             <th>因子</th>
             <th>原始資料</th>
@@ -351,28 +438,43 @@
 
           <tr>
             <td>通勤便利度</td>
-            <td>地址轉經緯度，計算與固定目的地的直線距離</td>
+            <td>
+              地址轉經緯度，
+              計算與固定目的地的直線距離
+            </td>
           </tr>
 
           <tr>
             <td>生活機能</td>
-            <td>租屋周邊生活設施資料</td>
+            <td>
+              租屋周邊生活設施資料
+            </td>
           </tr>
 
           <tr>
             <td>設備完善度</td>
-            <td>冰箱、冷氣、衣櫃、書桌等設備資訊</td>
+            <td>
+              冰箱、冷氣、衣櫃、書桌等設備資訊
+            </td>
           </tr>
 
           <tr>
             <td>採光與通風</td>
-            <td>是否具有對外窗與陽台</td>
+            <td>
+              是否具有對外窗與陽台
+            </td>
           </tr>
+
         </table>
+
       </details>
 
+
       <details>
-        <summary>偏好權重怎麼建立？</summary>
+
+        <summary>
+          偏好權重怎麼建立？
+        </summary>
 
         <p>
           使用者可以自行設定五項租屋決策評估因子的重要性排序，
@@ -386,57 +488,120 @@
           5、4、3、2、1 分，
           再將各因子的累積得分正規化為權重。
         </p>
+
       </details>
 
+
+      <!-- 系統畫面 -->
       <h3>系統畫面</h3>
 
       <div class="shots">
-        <!--
-        之後有截圖時，可以改成：
-        <img src="images/home.png" alt="系統首頁">
-        -->
 
-        <div class="shot">系統首頁</div>
-        <div class="shot">一般條件篩選</div>
-        <div class="shot">自然語言推薦</div>
-        <div class="shot">推薦結果</div>
+        <figure class="shot">
+
+          <img
+            src="images/system-home.png"
+            alt="智慧租屋系統首頁"
+          >
+
+          <figcaption>
+            系統首頁
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="shot">
+
+          <img
+            src="images/system-filter.png"
+            alt="一般條件篩選畫面"
+          >
+
+          <figcaption>
+            一般條件篩選
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="shot">
+
+          <img
+            src="images/system-ai.png"
+            alt="自然語言推薦畫面"
+          >
+
+          <figcaption>
+            自然語言推薦
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="shot">
+
+          <img
+            src="images/system-result.png"
+            alt="推薦結果畫面"
+          >
+
+          <figcaption>
+            推薦結果
+          </figcaption>
+
+        </figure>
+
       </div>
 
     </details>
   </div>
 </section>
 
+
 <!-- 工作經歷 -->
 <section id="exp">
   <div class="wrap">
+
     <h2>工作經歷</h2>
 
     <div class="row">
       <span>2026/7 — 現在</span>
+
       <div>
         <b>行政工讀生</b>
+
         <small>
-          上揚消防安全器材有限公司・文書作業、資料彙整、後勤支援
+          上揚消防安全器材有限公司・
+          文書作業、資料彙整、後勤支援
         </small>
       </div>
     </div>
+
 
     <div class="row">
       <span>2025/6 — 2026/1</span>
+
       <div>
         <b>顧客服務專員</b>
+
         <small>
-          台灣優衣庫有限公司・顧客服務、問題處理、團隊合作
+          台灣優衣庫有限公司・
+          顧客服務、問題處理、團隊合作
         </small>
       </div>
     </div>
 
+
     <div class="row">
       <span>2024/12 — 2025/8</span>
+
       <div>
         <b>門市人員（電商營運）</b>
+
         <small>
-          FOLIE・官網商品上架、商品文案、社群圖文
+          FOLIE・
+          官網商品上架、商品文案、社群圖文
         </small>
       </div>
     </div>
@@ -444,9 +609,11 @@
   </div>
 </section>
 
+
 <!-- 能力 -->
 <section id="skills">
   <div class="wrap">
+
     <h2>能力與專長</h2>
 
     <h3>程式與資訊技術</h3>
@@ -455,11 +622,9 @@
       <i>C#</i>
       <i>HTML</i>
       <i>CSS</i>
-      <i>Flask</i>
-      <i>SQLite</i>
-      <i>OpenAI API</i>
       <i>ERP</i>
     </div>
+
 
     <h3>證照</h3>
 
@@ -470,9 +635,11 @@
       <i>丙級會計事務技術士</i>
     </div>
 
+
     <h3>個人特質</h3>
 
     <div class="card">
+
       <p>
         <b>問題拆解</b>：
         習慣先理解需求，再拆分成可以逐步完成的工作。
@@ -491,14 +658,17 @@
         過去的顧客服務與工作經驗，
         讓我能在不同情況下進行溝通並處理問題。
       </p>
+
     </div>
 
   </div>
 </section>
 
+
 <!-- 聯絡 -->
 <section id="contact">
   <div class="wrap">
+
     <h2>聯絡我</h2>
 
     <p>
@@ -506,17 +676,26 @@
     </p>
 
     <div class="btns">
-      <a class="btn on" href="mailto:a0980558668@gmail.com">
+
+      <a
+        class="btn on"
+        href="mailto:a0980558668@gmail.com"
+      >
         ✉️ 寄信給我
       </a>
 
-      <a class="btn" href="tel:+886980558668">
+      <a
+        class="btn"
+        href="tel:+886980558668"
+      >
         📞 打電話
       </a>
+
     </div>
 
   </div>
 </section>
+
 
 <footer>
   © 2026 樊書廷
@@ -524,3 +703,4 @@
 
 </body>
 </html>
+```
