@@ -8,7 +8,9 @@
   --gold-light: #F1E7CE;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -20,11 +22,14 @@ body {
   background: var(--bg);
   color: var(--ink);
   line-height: 1.75;
-  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-family: "Noto Sans TC", "PingFang TC",
+               "Microsoft JhengHei", sans-serif;
   overflow-wrap: anywhere;
 }
 
-a { color: inherit; }
+a {
+  color: inherit;
+}
 
 .wrap {
   max-width: 760px;
@@ -32,13 +37,20 @@ a { color: inherit; }
   padding: 0 24px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: Georgia, "Noto Serif TC", serif;
   margin: 0 0 20px;
 }
 
-h1 { font-size: clamp(2.2rem, 8vw, 3.2rem); line-height: 1.3; }
-h2 { font-size: clamp(1.6rem, 5vw, 2rem); }
+h1 {
+  font-size: clamp(2.2rem, 8vw, 3.2rem);
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 5vw, 2rem);
+}
 
 h3 {
   font-size: .95rem;
@@ -47,6 +59,7 @@ h3 {
 }
 
 /* 導覽列 */
+
 nav {
   position: sticky;
   top: 0;
@@ -73,16 +86,25 @@ nav a {
   font-weight: 600;
 }
 
-nav a:hover { color: var(--navy); }
+nav a:hover {
+  color: var(--navy);
+}
 
 /* 區塊 */
+
 section {
   padding: 60px 0;
   border-bottom: 1px solid var(--line);
 }
 
-#home, #contact { text-align: center; }
-#home { padding: 90px 0; }
+#home,
+#contact {
+  text-align: center;
+}
+
+#home {
+  padding: 90px 0;
+}
 
 .sub {
   color: var(--gold);
@@ -91,12 +113,13 @@ section {
 }
 
 .lead {
-  max-width: 560px;
+  max-width: 580px;
   margin: 0 auto 28px;
   color: var(--soft);
 }
 
 /* 按鈕 */
+
 .btns {
   display: flex;
   justify-content: center;
@@ -114,12 +137,14 @@ section {
   transition: .2s;
 }
 
-.btn.on, .btn:hover {
+.btn.on,
+.btn:hover {
   background: var(--navy);
   color: var(--bg);
 }
 
-/* 文字卡片 */
+/* 卡片 */
+
 .card {
   background: #fff;
   border: 1px solid var(--line);
@@ -129,11 +154,20 @@ section {
   color: var(--soft);
 }
 
-.card p { margin: 0 0 10px; }
-.card p:last-child { margin: 0; }
-.card b { color: var(--ink); }
+.card p {
+  margin: 0 0 10px;
+}
 
-/* 學歷、經歷列表 */
+.card p:last-child {
+  margin: 0;
+}
+
+.card b {
+  color: var(--ink);
+}
+
+/* 學歷、經歷 */
+
 .row {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -142,11 +176,21 @@ section {
   border-bottom: 1px solid var(--line);
 }
 
-.row span { font-size: .85rem; color: var(--soft); }
-.row b { display: block; }
-.row small { color: var(--soft); }
+.row span {
+  font-size: .85rem;
+  color: var(--soft);
+}
+
+.row b {
+  display: block;
+}
+
+.row small {
+  color: var(--soft);
+}
 
 /* 專題 */
+
 .project {
   background: var(--navy);
   color: #fff;
@@ -165,9 +209,12 @@ section {
   margin: 0 0 18px;
 }
 
-.project small { color: #AEB7C5; }
+.project small {
+  color: #AEB7C5;
+}
 
 /* 標籤 */
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -191,35 +238,17 @@ section {
   font-weight: 600;
 }
 
+.project .tags {
+  margin-top: 22px;
+}
+
 .project .tags i {
   background: transparent;
   border-color: rgba(255, 255, 255, .25);
   color: #D9DEE6;
 }
 
-/* 聯絡 */
-#contact p {
-  color: var(--soft);
-  margin: 0 0 24px;
-}
-
-footer {
-  text-align: center;
-  padding: 24px;
-  font-size: .78rem;
-  color: var(--soft);
-}
-
-/* 手機版 */
-@media (max-width: 640px) {
-  nav .wrap { justify-content: flex-start; gap: 16px; }
-  .row { grid-template-columns: 1fr; gap: 0; }
-  #home { padding: 70px 0; }
-  .project { padding: 24px; }
-}
-
-/* 專題：數字 */
-.project .tags { margin-top: 22px; }
+/* 專題數字 */
 
 .stats {
   display: grid;
@@ -235,10 +264,20 @@ footer {
   text-align: center;
 }
 
-.stats b { display: block; font-size: 1.6rem; color: #D9B967; }
-.stats span { font-size: .75rem; color: #AEB7C5; }
+.stats b {
+  display: block;
+  font-size: 1.6rem;
+  color: #D9B967;
+}
 
-/* 專題：流程 */
+.stats span {
+  display: block;
+  font-size: .75rem;
+  color: #AEB7C5;
+}
+
+/* 專題流程 */
+
 .flow {
   list-style: none;
   padding: 0;
@@ -266,7 +305,11 @@ footer {
   margin-right: 6px;
 }
 
-.flow small { display: block; color: var(--soft); margin-top: 4px; }
+.flow small {
+  display: block;
+  color: var(--soft);
+  margin-top: 4px;
+}
 
 .note {
   color: var(--soft);
@@ -274,18 +317,30 @@ footer {
   margin: 14px 0 0;
 }
 
-/* 專題：負責項目 */
+/* 專題內容 */
+
 .roles {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
 }
 
-.roles .card { padding: 16px 18px; font-size: .88rem; }
-.roles .card b { display: block; margin-bottom: 4px; }
-.roles .card p { margin: 0; }
+.roles .card {
+  padding: 16px 18px;
+  font-size: .88rem;
+}
 
-/* 專題：收合區 */
+.roles .card b {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.roles .card p {
+  margin: 0;
+}
+
+/* 收合 */
+
 details {
   background: #fff;
   border: 1px solid var(--line);
@@ -301,9 +356,21 @@ summary {
   font-size: .92rem;
 }
 
-details p { color: var(--soft); font-size: .9rem; margin: 0 0 12px; }
-details p b { color: var(--ink); }
-details .note { margin-bottom: 14px; }
+details p {
+  color: var(--soft);
+  font-size: .9rem;
+  margin: 0 0 12px;
+}
+
+details p b {
+  color: var(--ink);
+}
+
+details .note {
+  margin-bottom: 14px;
+}
+
+/* 表格 */
 
 table {
   width: 100%;
@@ -312,23 +379,29 @@ table {
   margin-bottom: 14px;
 }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 8px 6px;
   border-bottom: 1px solid var(--line);
   color: var(--soft);
 }
 
-th { color: var(--ink); white-space: nowrap; }
+th {
+  color: var(--ink);
+  white-space: nowrap;
+}
 
-/* 專題：截圖 */
+/* 專題截圖 */
+
 .shots {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.shots img, .shot {
+.shots img,
+.shot {
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 10px;
@@ -346,13 +419,8 @@ th { color: var(--ink); white-space: nowrap; }
   border-style: dashed;
 }
 
-@media (max-width: 640px) {
-  .stats { grid-template-columns: 1fr 1fr; }
-  .flow { grid-template-columns: 1fr; }
-  .roles, .shots { grid-template-columns: 1fr; }
-}
+/* 專題整體收合 */
 
-/* 專題整體開合 */
 details.more {
   background: none;
   border: none;
@@ -370,14 +438,73 @@ details.more > summary {
   transition: .2s;
 }
 
-details.more > summary::-webkit-details-marker { display: none; }
+details.more > summary::-webkit-details-marker {
+  display: none;
+}
 
-details.more > summary::after { content: "  ▾"; }
-details.more[open] > summary::after { content: "  ▴"; }
+details.more > summary::after {
+  content: "  ▾";
+}
+
+details.more[open] > summary::after {
+  content: "  ▴";
+}
 
 details.more > summary:hover {
   background: var(--navy);
   color: var(--bg);
 }
 
-details.more[open] > summary { margin-bottom: 8px; }
+details.more[open] > summary {
+  margin-bottom: 8px;
+}
+
+/* 聯絡 */
+
+#contact p {
+  color: var(--soft);
+  margin: 0 0 24px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: .78rem;
+  color: var(--soft);
+}
+
+/* 手機版 */
+
+@media (max-width: 640px) {
+
+  nav .wrap {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  #home {
+    padding: 70px 0;
+  }
+
+  .project {
+    padding: 24px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .flow {
+    grid-template-columns: 1fr;
+  }
+
+  .roles,
+  .shots {
+    grid-template-columns: 1fr;
+  }
+}
