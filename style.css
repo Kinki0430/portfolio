@@ -351,3 +351,33 @@ th { color: var(--ink); white-space: nowrap; }
   .flow { grid-template-columns: 1fr; }
   .roles, .shots { grid-template-columns: 1fr; }
 }
+
+/* 專題整體開合 */
+details.more {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 16px;
+}
+
+details.more > summary {
+  list-style: none;
+  text-align: center;
+  padding: 12px 24px;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  font-size: .9rem;
+  transition: .2s;
+}
+
+details.more > summary::-webkit-details-marker { display: none; }
+
+details.more > summary::after { content: "  ▾"; }
+details.more[open] > summary::after { content: "  ▴"; }
+
+details.more > summary:hover {
+  background: var(--navy);
+  color: var(--bg);
+}
+
+details.more[open] > summary { margin-bottom: 8px; }
