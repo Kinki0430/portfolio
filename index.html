@@ -5,20 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>樊書廷 | 自我介紹</title>
 <style>
-    section {
-      padding: 60px 0;
-    }
+  :root { --navy:#0F1E33; --bg:#F6F6F3; --ink:#16202C; --soft:#5B6472; --line:#E1E1DC; --gold:#A9812F; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:70px; }
+  body { margin:0; background:var(--bg); color:var(--ink); line-height:1.75; font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; overflow-wrap:anywhere; }
+  a { color:inherit; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 24px; }
+  h1,h2 { font-family:Georgia,"Noto Serif TC",serif; margin:0 0 24px; }
+  h3 { font-size:.95rem; color:var(--gold); margin:28px 0 4px; }
 
-    .hero-bg {
-      background-color: #f8f9fa;
-    }
+  nav { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); }
+  nav .wrap { display:flex; justify-content:space-between; align-items:center; gap:16px; height:56px; }
+  nav div { display:flex; gap:20px; font-size:.88rem; font-weight:600; overflow-x:auto; }
+  nav div a { color:var(--soft); text-decoration:none; white-space:nowrap; }
 
-    .card:hover {
-      transform: translateY(-5px);
-      transition: 0.3s;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  section { padding:56px 0; border-bottom:1px solid var(--line); }
+  #home, #contact { text-align:center; }
+  #home { padding:72px 0; }
+  h1 { font-size:clamp(2rem,8vw,3rem); margin-bottom:8px; }
+  .sub { color:var(--gold); font-weight:600; margin:0; }
+  .lead, #contact p { color:var(--soft); margin:0 0 24px; }
+
+  .btns { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+  .btn { padding:12px 28px; border:1px solid var(--navy); border-radius:999px; text-decoration:none; font-weight:600; font-size:.9rem; }
+  .btn.on, .btn:hover { background:var(--navy); color:var(--bg); }
+
+  .card { background:#fff; border:1px solid var(--line); border-left:4px solid var(--gold); border-radius:12px; padding:20px 24px; color:var(--soft); }
+  .card p { margin:0 0 8px; }
+  .card p:last-child { margin:0; }
+
+  .row { display:grid; grid-template-columns:150px 1fr; gap:16px; padding:14px 0; border-bottom:1px solid var(--line); }
+  .row span { font-size:.84rem; color:var(--soft); }
+  .row b { display:block; }
+  .row small { color:var(--soft); }
+
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags i { font-style:normal; font-size:.82rem; padding:5px 14px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--soft); }
+  .tags.gold i { background:#F1E7CE; border-color:transparent; color:var(--gold); font-weight:600; }
+
+  footer { text-align:center; padding:24px; font-size:.78rem; color:var(--soft); }
+
+  @media (max-width:640px) {
+    nav .wrap > b { display:none; }
+    .row { grid-template-columns:1fr; gap:0; }
+  }
+</style>
 </head>
 <body>
 
