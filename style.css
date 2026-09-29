@@ -213,6 +213,31 @@ section {
   color: #AEB7C5;
 }
 
+/* 專題主圖與流程圖 */
+
+.project-cover {
+  margin: 16px 0 20px;
+}
+
+.project-cover img,
+.project-diagram img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+.project-diagram {
+  margin: 16px 0 20px;
+}
+
+.project-diagram img {
+  border-color: var(--line);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
 /* 標籤 */
 
 .tags {
@@ -392,31 +417,51 @@ th {
   white-space: nowrap;
 }
 
-/* 專題截圖 */
+/* 專題截圖排版 */
 
 .shots {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.shots img,
-.shot {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  object-fit: cover;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin: 16px 0;
 }
 
 .shot {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  transition: transform 0.25s ease;
+}
+
+.shot:hover {
+  transform: translateY(-4px);
+}
+
+.shot img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: block;
+  transition: box-shadow 0.25s ease;
+}
+
+.shot:hover img {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shot figcaption {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
   color: var(--soft);
-  font-size: .85rem;
-  border-style: dashed;
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
 /* 專題整體收合 */
@@ -473,7 +518,7 @@ footer {
   color: var(--soft);
 }
 
-/* 手機版 */
+/* 手機版適配 */
 
 @media (max-width: 640px) {
 
@@ -506,5 +551,6 @@ footer {
   .roles,
   .shots {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
