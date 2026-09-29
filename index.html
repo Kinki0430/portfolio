@@ -700,5 +700,38 @@
   © 2026 樊書廷
 </footer>
 
+<!-- 圖片點擊放大彈窗 (Lightbox) -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="放大預覽">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  // 為專題主圖、流程圖與系統截圖綁定點擊放大事件
+  document.querySelectorAll('.project-cover img, .project-diagram img, .shots img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+
+  // 點擊半透明背景或關閉按鈕退出放大
+  lightbox.addEventListener('click', (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove('active');
+    }
+  });
+
+  // 按鍵盤 ESC 鍵退出放大
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      lightbox.classList.remove('active');
+    }
+  });
+</script>
+
 </body>
 </html>
