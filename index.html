@@ -42,7 +42,7 @@
     <div class="card">
       <p>
         我是資訊管理系學生，學習
-        <b>程式設計、資料庫、系統分析</b>，並持續接觸 AI 應用。
+        <b>程式設計、資料庫、系統分析</b>，並持續接觸 AI 與 Web 應用。
       </p>
       <p>
         我喜歡把問題拆解後逐步解決，遇到不熟悉的技術，
@@ -72,19 +72,114 @@
 <section id="project">
   <div class="wrap">
     <h2>專題作品</h2>
+
     <div class="project">
       <h3>基於人工智慧與模糊語意之智慧租屋決策支援系統</h3>
       <p>
-        將大型語言模型導入實際系統情境，
-        從 API 串接、資料處理到使用者互動，探索 AI 在日常應用上的可能性。
+        讓使用者用「租金不要太高、離學校近一點」這類口語需求找房，
+        系統把模糊語意量化成 0～1 的符合程度，再依個人偏好排序推薦。
       </p>
+      <p><small>國立屏東大學 115 學年度畢業專題｜四人小組｜指導老師：李來錫</small></p>
+
+      <div class="stats">
+        <div><b>601</b><span>筆高屏租屋資料</span></div>
+        <div><b>5</b><span>項評估因子</span></div>
+        <div><b>114</b><span>份問卷建立預設權重</span></div>
+        <div><b>2</b><span>種使用模式</span></div>
+      </div>
+
       <div class="tags">
         <i>OpenAI API</i>
-        <i>LLM</i>
-        <i>Web 系統</i>
-        <i>開發中</i>
+        <i>Flask</i>
+        <i>SQLite</i>
+        <i>模糊理論</i>
+        <i>HTML / CSS / JS</i>
       </div>
-      <p><small>專題完成後將補充系統架構與成果展示。</small></p>
+    </div>
+
+    <h3>系統流程</h3>
+    <ol class="flow">
+      <li><b>輸入需求</b><small>自然語言或條件篩選</small></li>
+      <li><b>LLM 解析</b><small>轉成結構化需求</small></li>
+      <li><b>模糊量化</b><small>隸屬函數算出 0～1</small></li>
+      <li><b>偏好權重</b><small>依重要性排序</small></li>
+      <li><b>適配度排序</b><small>加權加總後推薦</small></li>
+    </ol>
+    <p class="note">
+      設計重點：LLM 只負責理解並結構化需求，不直接給分或決定排名，
+      分數由隸屬函數與權重公式計算，避免 AI 憑空產生不存在的房源。
+    </p>
+
+    <h3>我負責的部分</h3>
+    <div class="roles">
+      <div class="card">
+        <b>前端介面</b>
+        <p>雙模式介面（一般篩選／自然語言）、五因子重要性排序、推薦結果與各因子符合度呈現。</p>
+      </div>
+      <div class="card">
+        <b>後端與 API 串接</b>
+        <p>參與 Flask 後端與 OpenAI API 串接，API Key 由後端管理，不暴露於前端。</p>
+      </div>
+      <div class="card">
+        <b>模糊需求量化</b>
+        <p>以左肩型、三角形、右肩型隸屬函數，將租金、距離等原始資料轉成 0～1 的符合程度。</p>
+      </div>
+      <div class="card">
+        <b>推薦機制</b>
+        <p>用 ROC 權重法轉換使用者排序，再以加權加總計算人房適配度並排序。</p>
+      </div>
+    </div>
+
+    <h3>核心機制（點開看範例）</h3>
+
+    <details>
+      <summary>模糊量化：「租金不要太高」怎麼算？</summary>
+      <p>
+        設定月租 8,000 元以下完全符合（1），10,000 元以上不符合（0）。
+        某房源月租 9,000 元，符合程度為
+        (10000 − 9000) ÷ (10000 − 8000) = <b>0.5</b>。
+      </p>
+      <p class="note">此為示意參數，實際參數依 601 筆資料分布與內政部租金統計設定。</p>
+    </details>
+
+    <details>
+      <summary>人房適配度：怎麼整合五項因子？</summary>
+      <p>公式：S = w₁μ₁ + w₂μ₂ + w₃μ₃ + w₄μ₄ + w₅μ₅（權重總和為 1）</p>
+      <p>
+        權重 (0.30, 0.25, 0.20, 0.15, 0.10)，符合程度 (0.8, 0.9, 0.7, 1.0, 0.6)，
+        S = <b>0.815</b>，再依 S 由高到低排序。
+      </p>
+    </details>
+
+    <details>
+      <summary>五項評估因子的資料來源</summary>
+      <table>
+        <tr><th>因子</th><th>原始資料</th></tr>
+        <tr><td>預算租金</td><td>每月租金</td></tr>
+        <tr><td>通勤便利度</td><td>地址轉經緯度，計算與 6 個固定目的地的直線距離</td></tr>
+        <tr><td>生活機能</td><td>餐廳、超商、大眾運輸、醫院、學校、百貨六類設施有無</td></tr>
+        <tr><td>設備完善度</td><td>冰箱、冷氣、衣櫃、書桌</td></tr>
+        <tr><td>採光與通風</td><td>是否有對外窗與陽台</td></tr>
+      </table>
+    </details>
+
+    <details>
+      <summary>預設權重怎麼來？</summary>
+      <p>
+        使用者有排序時，用 ROC 權重法轉換；沒有排序時，採用 114 份問卷的結果：
+        第一至第五順位依序給 5、4、3、2、1 分，加總後正規化。
+        問卷顯示重要性依序為預算租金、通勤便利度、生活機能、設備完善度、採光與通風。
+      </p>
+    </details>
+
+    <h3>系統畫面</h3>
+    <div class="shots">
+      <!-- 將截圖放到 images 資料夾，並把下面的 div 換成：
+           <img src="images/home.png" alt="系統首頁"> -->
+      <div class="shot">系統首頁</div>
+      <div class="shot">一般條件篩選</div>
+      <div class="shot">自然語言推薦</div>
+      <div class="shot">推薦結果</div>
     </div>
   </div>
 </section>
@@ -98,7 +193,7 @@
       <span>2026/7 — 現在</span>
       <div>
         <b>行政工讀生</b>
-        <small>上揚消防安全器材有限公司・文書處裡、資料彙整</small>
+        <small>上揚消防安全器材有限公司</small>
       </div>
     </div>
 
@@ -106,7 +201,7 @@
       <span>2025/6 — 2026/1</span>
       <div>
         <b>顧客服務專員</b>
-        <small>台灣優衣庫有限公司・顧客服務、問題處理</small>
+        <small>台灣優衣庫有限公司</small>
       </div>
     </div>
 
@@ -132,21 +227,36 @@
 <section id="skills">
   <div class="wrap">
     <h2>能力與專長</h2>
-    <h3>程式與資訊技術</h3>
+
+    <h3 style="margin-top:0">AI / 技術學習</h3>
     <div class="tags gold">
+      <i>OpenAI API</i>
+      <i>LLM 應用</i>
+      <i>API 串接</i>
+      <i>模糊理論</i>
+      <i>Web 應用</i>
+    </div>
+
+    <h3>程式與資訊技術</h3>
+    <div class="tags">
+      <i>Python</i>
+      <i>Flask</i>
+      <i>SQLite</i>
       <i>C#</i>
+      <i>SQL</i>
       <i>HTML</i>
       <i>CSS</i>
+      <i>JavaScript</i>
       <i>ERP</i>
-      <i>文書軟體</i>
+      <i>Excel</i>
     </div>
 
     <h3>證照</h3>
     <div class="tags">
-         <i>EEC 企業電子化助理規劃師</i>
+      <i>丙級會計事務技術士</i>
+      <i>EEC 企業電子化助理規劃師</i>
       <i>TQC 電子商務概論</i>
       <i>ERP 基礎檢定（學科）</i>
-      <i>丙級會計事務技術士</i>
     </div>
 
     <h3>個人特質</h3>
@@ -164,7 +274,7 @@
 <section id="contact">
   <div class="wrap">
     <h2>聯絡我</h2>
-    <p>歡迎與我聯繫。</p>
+    <p>歡迎與我聯繫，交流專題或 AI 應用的學習經驗。</p>
     <div class="btns">
       <a class="btn on" href="mailto:a0980558668@gmail.com">✉️ 寄信給我</a>
       <a class="btn" href="tel:+886980558668">📞 打電話</a>
