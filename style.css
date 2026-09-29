@@ -217,3 +217,137 @@ footer {
   #home { padding: 70px 0; }
   .project { padding: 24px; }
 }
+
+/* 專題：數字 */
+.project .tags { margin-top: 22px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.stats div {
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+}
+
+.stats b { display: block; font-size: 1.6rem; color: #D9B967; }
+.stats span { font-size: .75rem; color: #AEB7C5; }
+
+/* 專題：流程 */
+.flow {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  counter-reset: step;
+}
+
+.flow li {
+  counter-increment: step;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: .85rem;
+}
+
+.flow li::before {
+  content: counter(step);
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.flow small { display: block; color: var(--soft); margin-top: 4px; }
+
+.note {
+  color: var(--soft);
+  font-size: .85rem;
+  margin: 14px 0 0;
+}
+
+/* 專題：負責項目 */
+.roles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.roles .card { padding: 16px 18px; font-size: .88rem; }
+.roles .card b { display: block; margin-bottom: 4px; }
+.roles .card p { margin: 0; }
+
+/* 專題：收合區 */
+details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 18px;
+  margin-bottom: 10px;
+}
+
+summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-weight: 600;
+  font-size: .92rem;
+}
+
+details p { color: var(--soft); font-size: .9rem; margin: 0 0 12px; }
+details p b { color: var(--ink); }
+details .note { margin-bottom: 14px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+  margin-bottom: 14px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  color: var(--soft);
+}
+
+th { color: var(--ink); white-space: nowrap; }
+
+/* 專題：截圖 */
+.shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.shots img, .shot {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
+.shot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--soft);
+  font-size: .85rem;
+  border-style: dashed;
+}
+
+@media (max-width: 640px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  .roles, .shots { grid-template-columns: 1fr; }
+}
